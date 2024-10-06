@@ -107,7 +107,7 @@ class _DetailPageState extends State<DetailPage> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(widget.cat.name,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontSize: 24,
                                       color: black,
                                       fontWeight: FontWeight.bold)),
@@ -192,7 +192,7 @@ class _DetailPageState extends State<DetailPage> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(widget.cat.owner.name,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         fontSize: 16,
                                         color: black,
                                         fontWeight: FontWeight.bold)),
@@ -250,7 +250,7 @@ class _DetailPageState extends State<DetailPage> {
                                   blurRadius: 10)
                             ],
                             color: blue),
-                        child: Center(
+                        child: const Center(
                           child: Text(
                             'Adopt Me',
                             style: TextStyle(fontSize: 14, color: white),
@@ -315,7 +315,7 @@ class DetailItem extends StatelessWidget {
               children: [
                 Text(
                   detail,
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: 16, color: black, fontWeight: FontWeight.bold),
                 ),
                 Text(

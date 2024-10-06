@@ -26,7 +26,6 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        // Added this to enable scrolling
         child: Column(
           children: [
             const SizedBox(height: 30),
@@ -53,15 +52,15 @@ class _HomePageState extends State<HomePage> {
                             )
                           ],
                         ),
-                        Text.rich(TextSpan(children: [
+                        const Text.rich(TextSpan(children: [
                           TextSpan(
-                              text: 'Pekanbaru, ',
+                              text: 'Medan, ',
                               style: TextStyle(
                                   fontSize: 24,
                                   fontWeight: FontWeight.bold,
                                   color: black)),
                           TextSpan(
-                              text: 'Riau',
+                              text: 'Sumatera Utara',
                               style: TextStyle(fontSize: 24, color: black)),
                         ])),
                       ],
@@ -147,7 +146,7 @@ class _HomePageState extends State<HomePage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
+                          const Text(
                             'Join Our Animal\nLovers Community',
                             style: TextStyle(
                                 fontSize: 16,
@@ -161,7 +160,7 @@ class _HomePageState extends State<HomePage> {
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
                                 color: orange),
-                            child: Text(
+                            child: const Text(
                               'Join Us',
                               style: TextStyle(color: white, fontSize: 14),
                             ),
@@ -178,7 +177,7 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(
                 children: [
-                  Text(
+                  const Text(
                     'Categories',
                     style: TextStyle(
                         fontSize: 16,
@@ -188,7 +187,7 @@ class _HomePageState extends State<HomePage> {
                   const Spacer(),
                   Row(
                     children: [
-                      Text(
+                      const Text(
                         'View All',
                         style: TextStyle(fontSize: 12, color: orange),
                       ),
@@ -267,7 +266,7 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(
                 children: [
-                  Text(
+                  const Text(
                     'Adopt Pet',
                     style: TextStyle(
                         fontSize: 16,
@@ -277,7 +276,7 @@ class _HomePageState extends State<HomePage> {
                   const Spacer(),
                   Row(
                     children: [
-                      Text(
+                      const Text(
                         'View All',
                         style: TextStyle(fontSize: 12, color: orange),
                       ),
@@ -377,7 +376,7 @@ class _HomePageState extends State<HomePage> {
                                       padding: const EdgeInsets.all(6),
                                       decoration: const BoxDecoration(
                                           shape: BoxShape.circle, color: blue),
-                                      child: Text(
+                                      child: const Text(
                                         '6',
                                         style: TextStyle(color: white),
                                       )),
@@ -456,7 +455,7 @@ class CatItem extends StatelessWidget {
                       children: [
                         Text(
                           cat.name,
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontSize: 16,
                               color: black,
                               fontWeight: FontWeight.bold),
