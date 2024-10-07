@@ -269,7 +269,7 @@ class _HomePageState extends State<HomePage> {
               child: Row(
                 children: [
                   const Text(
-                    'Adopt Pet',
+                    'Adopt Pets',
                     style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
