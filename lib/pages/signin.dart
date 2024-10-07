@@ -4,14 +4,14 @@ import 'package:pet_adoption_app_project/pages/forgotpassword.dart';
 import 'package:pet_adoption_app_project/pages/home.dart';
 import 'package:pet_adoption_app_project/pages/signup.dart';
 
-class SignInScreen extends StatefulWidget {
-  const SignInScreen({super.key});
+class SignIn extends StatefulWidget {
+  const SignIn({super.key});
 
   @override
-  State<SignInScreen> createState() => _SignInScreenState();
+  State<SignIn> createState() => _SignInState();
 }
 
-class _SignInScreenState extends State<SignInScreen> {
+class _SignInState extends State<SignIn> {
   // Controllers
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
