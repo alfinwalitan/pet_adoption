@@ -139,8 +139,7 @@ class _HomePageState extends State<HomePage> {
                       bottom: 0,
                       right: 20,
                       height: 135,
-                      child: Image.asset(
-                          'assets/cats/cat1.png'), // Ensure this image exists
+                      child: Image.asset('assets/cats/cat1.png'),
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -406,7 +405,6 @@ class CatItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Debugging log for cat image path
     print('Cat image path: ${cat.image}');
 
     return ClipRRect(
