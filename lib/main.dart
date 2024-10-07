@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pet_adoption_app_project/pages/onboard.dart';
+import 'package:pet_adoption_app_project/pages/signin.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: const OnBoardPage(),
+      home: const SignInScreen(),
     );
   }
 }

@@ -82,7 +82,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                     ],
-                  )
+                  ),
                 ],
               ),
             ),
@@ -136,10 +136,12 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     Positioned(
-                        bottom: 0,
-                        right: 20,
-                        height: 135,
-                        child: Image.asset('assets/cats/cat1.png')),
+                      bottom: 0,
+                      right: 20,
+                      height: 135,
+                      child: Image.asset(
+                          'assets/cats/cat1.png'), // Ensure this image exists
+                    ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Column(
@@ -164,10 +166,10 @@ class _HomePageState extends State<HomePage> {
                               'Join Us',
                               style: TextStyle(color: white, fontSize: 14),
                             ),
-                          )
+                          ),
                         ],
                       ),
-                    )
+                    ),
                   ]),
                 ),
               ),
@@ -193,17 +195,18 @@ class _HomePageState extends State<HomePage> {
                       ),
                       const SizedBox(width: 10),
                       Container(
-                          padding: const EdgeInsets.all(3),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(5),
-                              color: orange),
-                          child: const Icon(
-                            Icons.keyboard_arrow_right_rounded,
-                            size: 14,
-                            color: white,
-                          ))
+                        padding: const EdgeInsets.all(3),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5),
+                            color: orange),
+                        child: const Icon(
+                          Icons.keyboard_arrow_right_rounded,
+                          size: 14,
+                          color: white,
+                        ),
+                      ),
                     ],
-                  )
+                  ),
                 ],
               ),
             ),
@@ -258,7 +261,7 @@ class _HomePageState extends State<HomePage> {
                           )),
                     ),
                   ),
-                )
+                ),
               ]),
             ),
             const SizedBox(height: 20),
@@ -282,17 +285,18 @@ class _HomePageState extends State<HomePage> {
                       ),
                       const SizedBox(width: 10),
                       Container(
-                          padding: const EdgeInsets.all(3),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(5),
-                              color: orange),
-                          child: const Icon(
-                            Icons.keyboard_arrow_right_rounded,
-                            size: 14,
-                            color: white,
-                          ))
+                        padding: const EdgeInsets.all(3),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5),
+                            color: orange),
+                        child: const Icon(
+                          Icons.keyboard_arrow_right_rounded,
+                          size: 14,
+                          color: white,
+                        ),
+                      ),
                     ],
-                  )
+                  ),
                 ],
               ),
             ),
@@ -307,14 +311,16 @@ class _HomePageState extends State<HomePage> {
                         ? const EdgeInsets.only(left: 20, right: 20)
                         : const EdgeInsets.only(right: 20),
                     child: GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      DetailPage(cat: cats[index])));
-                        },
-                        child: CatItem(cat: cats[index])),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => DetailPage(cat: cats[index]),
+                          ),
+                        );
+                      },
+                      child: CatItem(cat: cats[index]),
+                    ),
                   ),
                 ),
               ),
@@ -329,63 +335,61 @@ class _HomePageState extends State<HomePage> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: List.generate(
-              icons.length,
-              (index) => GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        selectedPage = index;
-                      });
-                    },
-                    child: Container(
+            icons.length,
+            (index) => GestureDetector(
+              onTap: () {
+                setState(() {
+                  selectedPage = index;
+                });
+              },
+              child: Container(
+                height: 60,
+                width: 50,
+                padding: const EdgeInsets.all(5),
+                child: Stack(
+                  children: [
+                    SizedBox(
                       height: 60,
                       width: 50,
-                      padding: const EdgeInsets.all(5),
-                      child: Stack(
+                      child: Column(
                         children: [
-                          SizedBox(
-                            height: 60,
-                            width: 50,
-                            child: Column(
-                              children: [
-                                Icon(
-                                  icons[index],
-                                  color: selectedPage == index
-                                      ? blue
-                                      : black.withOpacity(0.6),
-                                ),
-                                const SizedBox(
-                                  height: 5,
-                                ),
-                                selectedPage == index
-                                    ? Container(
-                                        height: 5,
-                                        width: 5,
-                                        decoration: const BoxDecoration(
-                                            shape: BoxShape.circle,
-                                            color: blue),
-                                      )
-                                    : Container()
-                              ],
-                            ),
+                          Icon(
+                            icons[index],
+                            color: selectedPage == index
+                                ? blue
+                                : black.withOpacity(0.6),
                           ),
-                          index == 2
-                              ? Positioned(
-                                  right: 0,
-                                  top: -5,
-                                  child: Container(
-                                      padding: const EdgeInsets.all(6),
-                                      decoration: const BoxDecoration(
-                                          shape: BoxShape.circle, color: blue),
-                                      child: const Text(
-                                        '6',
-                                        style: TextStyle(color: white),
-                                      )),
+                          const SizedBox(height: 5),
+                          selectedPage == index
+                              ? Container(
+                                  height: 5,
+                                  width: 5,
+                                  decoration: const BoxDecoration(
+                                      shape: BoxShape.circle, color: blue),
                                 )
-                              : Container()
+                              : Container(),
                         ],
                       ),
                     ),
-                  )),
+                    index == 2
+                        ? Positioned(
+                            right: 0,
+                            top: -5,
+                            child: Container(
+                                padding: const EdgeInsets.all(6),
+                                decoration: const BoxDecoration(
+                                    shape: BoxShape.circle, color: blue),
+                                child: const Text(
+                                  '6',
+                                  style: TextStyle(color: white),
+                                )),
+                          )
+                        : Container(),
+                  ],
+                ),
+              ),
+            ),
+          ),
         ),
       ),
     );
@@ -394,6 +398,7 @@ class _HomePageState extends State<HomePage> {
 
 class CatItem extends StatelessWidget {
   final Cat cat;
+
   const CatItem({
     Key? key,
     required this.cat,
@@ -401,6 +406,9 @@ class CatItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Debugging log for cat image path
+    print('Cat image path: ${cat.image}');
+
     return ClipRRect(
       borderRadius: BorderRadius.circular(30),
       child: Container(
@@ -415,12 +423,13 @@ class CatItem extends StatelessWidget {
               height: 100,
               width: 100,
               child: Transform.rotate(
-                  angle: 12,
-                  child: SvgPicture.asset(
-                    'assets/Paw_Print.svg',
-                    color: cat.color,
-                    fit: BoxFit.cover,
-                  )),
+                angle: 12,
+                child: SvgPicture.asset(
+                  'assets/Paw_Print.svg',
+                  color: cat.color,
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
             Positioned(
               top: 100,
@@ -428,12 +437,13 @@ class CatItem extends StatelessWidget {
               height: 100,
               width: 100,
               child: Transform.rotate(
-                  angle: -11.5,
-                  child: SvgPicture.asset(
-                    'assets/Paw_Print.svg',
-                    color: cat.color,
-                    fit: BoxFit.cover,
-                  )),
+                angle: -11.5,
+                child: SvgPicture.asset(
+                  'assets/Paw_Print.svg',
+                  color: cat.color,
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
             Positioned(
               bottom: -10,
@@ -489,10 +499,10 @@ class CatItem extends StatelessWidget {
                           : Icons.favorite_outline_rounded,
                       color: cat.fav ? red : black.withOpacity(0.6),
                     ),
-                  )
+                  ),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),

@@ -7,3 +7,6 @@ const green = Colors.green;
 const white = Colors.white;
 const red = Colors.red;
 const transparent = Colors.transparent;
+
+// text color
+const subtitle = Color.fromARGB(255, 7, 2, 80);
