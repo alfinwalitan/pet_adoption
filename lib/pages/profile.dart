@@ -1,20 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:pet_adoption_app_project/models/cats_model.dart';
+import 'package:pet_adoption_app_project/pages/favorit.dart';
 import 'package:pet_adoption_app_project/pages/home.dart';
-import 'package:pet_adoption_app_project/pages/profile.dart';
 import 'package:pet_adoption_app_project/widgets/bottomNavigationBar.dart';
 
-class FavoritesPage extends StatefulWidget {
-  final List<Cat> favoriteCats;
-
-  const FavoritesPage({Key? key, required this.favoriteCats}) : super(key: key);
+class ProfilePage extends StatefulWidget {
+  const ProfilePage({Key? key}) : super(key: key);
 
   @override
-  State<FavoritesPage> createState() => _FavoritesPageState();
+  State<ProfilePage> createState() => _ProfilePageState();
 }
 
-class _FavoritesPageState extends State<FavoritesPage> {
-  int selectedPage = 1;
+class _ProfilePageState extends State<ProfilePage> {
+  int selectedPage = 3;
+
+  // Dummy profile data
+  final Map<String, String> profileDetails = {
+    'Name': 'John Doe',
+    'Email': 'johndoe@example.com',
+    'Phone': '+1234567890',
+    'Location': 'New York, USA',
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +30,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
           Container(
             padding: EdgeInsets.all(16.0),
             child: Text(
-              'Favorites',
+              'Profile',
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 24,
@@ -34,19 +39,20 @@ class _FavoritesPageState extends State<FavoritesPage> {
             ),
           ),
           Expanded(
-            child: widget.favoriteCats.isEmpty
-                ? Center(child: Text('No favorite pets yet!'))
-                : ListView.builder(
-                    itemCount: widget.favoriteCats.length,
-                    itemBuilder: (context, index) {
-                      return ListTile(
-                        leading: Image.asset(widget.favoriteCats[index].image),
-                        title: Text(widget.favoriteCats[index].name),
-                        subtitle: Text(
-                            'Distance: ${widget.favoriteCats[index].distance} Km'),
-                      );
-                    },
+            child: ListView.builder(
+              itemCount: profileDetails.length,
+              itemBuilder: (context, index) {
+                String key = profileDetails.keys.elementAt(index);
+                return ListTile(
+                  title: Text(key),
+                  subtitle: Text(profileDetails[key]!),
+                  leading: Icon(
+                    Icons.person,
+                    color: Colors.blue, // Adjust icon as needed
                   ),
+                );
+              },
+            ),
           ),
         ],
       ),
@@ -56,22 +62,24 @@ class _FavoritesPageState extends State<FavoritesPage> {
           setState(() {
             selectedPage = index;
             if (index == 0) {
-              // Go to Home Page
+              // Navigate to Home Page
               Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) => HomePage(),
                 ),
               );
-            } else if (index == 3) {
+            } else if (index == 1) {
               // Navigate to Favorites Page, pass the required favoriteCats list
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => ProfilePage(), // Pass empty or actual list
+                  builder: (context) => FavoritesPage(
+                      favoriteCats: []), // Pass empty or actual list
                 ),
               );
-          }});
+            }
+          });
         },
       ),
     );

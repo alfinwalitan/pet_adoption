@@ -4,6 +4,7 @@ import 'package:pet_adoption_app_project/const.dart';
 import 'package:pet_adoption_app_project/models/cats_model.dart';
 import 'package:pet_adoption_app_project/pages/detail.dart';
 import 'package:pet_adoption_app_project/pages/favorit.dart';
+import 'package:pet_adoption_app_project/pages/profile.dart';
 import 'package:pet_adoption_app_project/widgets/bottomNavigationBar.dart';
 
 class HomePage extends StatefulWidget {
@@ -350,8 +351,15 @@ class _HomePageState extends State<HomePage> {
                       FavoritesPage(favoriteCats: favoriteCats),
                 ),
               );
-            }
-          });
+            } else if (index == 3) {
+              // Navigate to Favorites Page, pass the required favoriteCats list
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ProfilePage(), // Pass empty or actual list
+                ),
+              );
+          }});
         },
       ),
     );
