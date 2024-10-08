@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pet_adoption_app_project/pages/home.dart';
 import 'package:pet_adoption_app_project/pages/onboard.dart';
 
 void main() {
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: const OnBoardPage(),
+      home: const HomePage(),
     );
   }
 }
