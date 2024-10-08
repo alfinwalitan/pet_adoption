@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:pet_adoption_app_project/const.dart';
 import 'package:pet_adoption_app_project/models/owner_model.dart';
 
-class Cat {
+class Dog {
   final Color color;
   final String name, location, sex, image, description;
   final double age, weight;
   final int distance;
-  bool fav;
+  final bool fav;
   final Owner owner;
 
-  Cat({
-    this.fav = false,
+  Dog({
+    required this.fav,
     required this.image,
     required this.color,
     required this.description,
@@ -25,8 +25,8 @@ class Cat {
   });
 }
 
-List<Cat> cats = [
-  Cat(
+List<Dog> dogs = [
+  Dog(
       fav: true,
       color: orange,
       name: 'Leo',
@@ -35,10 +35,10 @@ List<Cat> cats = [
       sex: 'Male',
       age: 2.1,
       weight: 3.7,
-      image: 'assets/cats/cat1.png',
+      image: 'assets/dogs/dog1.jpg',
       distance: 7,
       owner: owners[0]),
-  Cat(
+  Dog(
       fav: true,
       color: orange,
       name: 'Rina',
@@ -47,10 +47,10 @@ List<Cat> cats = [
       sex: 'Female',
       age: 1.8,
       weight: 3.9,
-      image: 'assets/cats/cat2.png',
+      image: 'assets/dogs/dog2.jpg',
       distance: 7,
       owner: owners[1]),
-  Cat(
+  Dog(
       fav: true,
       color: orange,
       name: 'Kaligo',
@@ -59,10 +59,10 @@ List<Cat> cats = [
       sex: 'Male',
       age: 2.1,
       weight: 4.2,
-      image: 'assets/cats/cat3.png',
+      image: 'assets/dogs/dog3.jpg',
       distance: 7,
       owner: owners[2]),
-  Cat(
+  Dog(
       fav: true,
       color: orange,
       name: 'Luna',
@@ -71,7 +71,7 @@ List<Cat> cats = [
       sex: 'Female',
       age: 3.1,
       weight: 4.5,
-      image: 'assets/cats/cat1.png',
+      image: 'assets/dogs/dog4.jpg',
       distance: 7,
       owner: owners[0]),
 ];

@@ -3,6 +3,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pet_adoption_app_project/const.dart';
 import 'package:pet_adoption_app_project/models/cats_model.dart';
 import 'package:pet_adoption_app_project/pages/detail.dart';
+import 'package:pet_adoption_app_project/pages/favorit.dart';
+import 'package:pet_adoption_app_project/widgets/bottomNavigationBar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -15,12 +17,15 @@ class _HomePageState extends State<HomePage> {
   List<String> categories = ['Cats', 'Dogs', 'Birds', 'Fishs'];
   String category = 'Cats';
   int selectedPage = 0;
+
   List<IconData> icons = [
     Icons.home_outlined,
     Icons.favorite_outline_rounded,
     Icons.chat_outlined,
     Icons.person_outline_rounded,
   ];
+
+  List<Cat> favoriteCats = [];
 
   @override
   Widget build(BuildContext context) {
@@ -318,7 +323,10 @@ class _HomePageState extends State<HomePage> {
                           ),
                         );
                       },
-                      child: CatItem(cat: cats[index]),
+                      child: CatItem(
+                        cat: cats[index],
+                        toggleFavorite: toggleFavorite, // Pass toggleFavorite
+                      ),
                     ),
                   ),
                 ),
@@ -328,79 +336,47 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      bottomNavigationBar: Container(
-        height: 60,
-        color: white,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: List.generate(
-            icons.length,
-            (index) => GestureDetector(
-              onTap: () {
-                setState(() {
-                  selectedPage = index;
-                });
-              },
-              child: Container(
-                height: 60,
-                width: 50,
-                padding: const EdgeInsets.all(5),
-                child: Stack(
-                  children: [
-                    SizedBox(
-                      height: 60,
-                      width: 50,
-                      child: Column(
-                        children: [
-                          Icon(
-                            icons[index],
-                            color: selectedPage == index
-                                ? blue
-                                : black.withOpacity(0.6),
-                          ),
-                          const SizedBox(height: 5),
-                          selectedPage == index
-                              ? Container(
-                                  height: 5,
-                                  width: 5,
-                                  decoration: const BoxDecoration(
-                                      shape: BoxShape.circle, color: blue),
-                                )
-                              : Container(),
-                        ],
-                      ),
-                    ),
-                    index == 2
-                        ? Positioned(
-                            right: 0,
-                            top: -5,
-                            child: Container(
-                                padding: const EdgeInsets.all(6),
-                                decoration: const BoxDecoration(
-                                    shape: BoxShape.circle, color: blue),
-                                child: const Text(
-                                  '6',
-                                  style: TextStyle(color: white),
-                                )),
-                          )
-                        : Container(),
-                  ],
+      bottomNavigationBar: BottomNavigationBarWidget(
+        selectedPage: selectedPage,
+        onPageSelected: (index) {
+          setState(() {
+            selectedPage = index;
+            if (index == 1) {
+              // Go to Favorites Page
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) =>
+                      FavoritesPage(favoriteCats: favoriteCats),
                 ),
-              ),
-            ),
-          ),
-        ),
+              );
+            }
+          });
+        },
       ),
     );
+  }
+
+  void toggleFavorite(Cat cat) {
+    setState(() {
+      cat.fav = !cat.fav;
+      if (cat.fav) {
+        favoriteCats.add(cat);
+      } else {
+        favoriteCats.remove(cat);
+      }
+    });
   }
 }
 
 class CatItem extends StatelessWidget {
   final Cat cat;
+  final Function toggleFavorite;
 
   const CatItem({
     Key? key,
     required this.cat,
+    required this.toggleFavorite, // Add this line
   }) : super(key: key);
 
   @override
@@ -487,15 +463,18 @@ class CatItem extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Container(
-                    padding: const EdgeInsets.all(5),
-                    decoration: const BoxDecoration(
-                        shape: BoxShape.circle, color: white),
-                    child: Icon(
-                      cat.fav
-                          ? Icons.favorite_rounded
-                          : Icons.favorite_outline_rounded,
-                      color: cat.fav ? red : black.withOpacity(0.6),
+                  GestureDetector(
+                    onTap: () => toggleFavorite(cat), // Add this line
+                    child: Container(
+                      padding: const EdgeInsets.all(5),
+                      decoration: const BoxDecoration(
+                          shape: BoxShape.circle, color: white),
+                      child: Icon(
+                        cat.fav
+                            ? Icons.favorite_rounded
+                            : Icons.favorite_outline_rounded,
+                        color: cat.fav ? red : black.withOpacity(0.6),
+                      ),
                     ),
                   ),
                 ],
