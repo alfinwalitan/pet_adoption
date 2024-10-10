@@ -62,10 +62,14 @@ class _SignInState extends State<SignIn> {
               key: formKey,
               child: Column(
                 children: [
-                  Image.asset("assets/Kucing/kucing1.jpg", width: 100),
+                  Image.asset("assets/ScreenAssets/Logo_nobackground.png",
+                      width: 180),
                   const Text(
                     "WELCOME BACK!",
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                        color: orange),
                   ),
                   const Text("We're so happy to see you again!",
                       style: TextStyle(color: subtitle)),
@@ -102,7 +106,7 @@ class _SignInState extends State<SignIn> {
                         const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
-                        color: Colors.deepPurple.withOpacity(.2)),
+                        color: Colors.deepPurple.withOpacity(.3)),
                     child: TextFormField(
                       controller: _passwordController,
                       validator: (value) {
@@ -169,7 +173,8 @@ class _SignInState extends State<SignIn> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text("Don't have an account?"),
+                      const Text("Don't have an account?",
+                          style: TextStyle(color: subtitle)),
                       TextButton(
                           onPressed: () {
                             Navigator.push(
@@ -177,7 +182,8 @@ class _SignInState extends State<SignIn> {
                                 MaterialPageRoute(
                                     builder: (context) => const SignUp()));
                           },
-                          child: const Text("Sign Up"))
+                          child: const Text("Sign Up",
+                              style: TextStyle(fontWeight: FontWeight.bold)))
                     ],
                   )
                 ],

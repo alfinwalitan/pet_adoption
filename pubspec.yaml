@@ -67,9 +67,9 @@ flutter:
     - assets/girls/
     - assets/owners/
     - assets/cats/
-    - assets/Kucing/
     - assets/Paw_Print.svg
     - assets/cats/cat1.png
+    - assets/ScreenAssets/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

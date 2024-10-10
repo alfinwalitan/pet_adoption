@@ -9,4 +9,4 @@ const red = Colors.red;
 const transparent = Colors.transparent;
 
 // text color
-const subtitle = Color.fromARGB(255, 7, 2, 80);
+const subtitle = Color.fromARGB(255, 40, 124, 64);

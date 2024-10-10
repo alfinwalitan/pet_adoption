@@ -46,10 +46,14 @@ class _SignUpState extends State<SignUp> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset("", width: 100),
+                  Image.asset("assets/ScreenAssets/Logo_nobackground.png",
+                      width: 180),
                   const Text(
                     "Create Your Account!",
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                        color: orange),
                   ),
                   const Text("Create your account by fill the details below!",
                       style: TextStyle(color: subtitle)),
@@ -59,7 +63,7 @@ class _SignUpState extends State<SignUp> {
                   Container(
                     margin: const EdgeInsets.all(8),
                     padding:
-                        const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                        const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
                         color: Colors.deepPurple.withOpacity(.3)),
@@ -82,7 +86,7 @@ class _SignUpState extends State<SignUp> {
                   Container(
                     margin: const EdgeInsets.all(8),
                     padding:
-                        const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                        const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
                         color: Colors.deepPurple.withOpacity(.3)),
@@ -106,10 +110,10 @@ class _SignUpState extends State<SignUp> {
                   Container(
                     margin: const EdgeInsets.all(8),
                     padding:
-                        const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                        const EdgeInsets.symmetric(horizontal: 10, vertical: 9),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
-                        color: Colors.deepPurple.withOpacity(.2)),
+                        color: Colors.deepPurple.withOpacity(.3)),
                     child: TextFormField(
                       controller: _passwordController,
                       validator: (value) {
@@ -143,10 +147,10 @@ class _SignUpState extends State<SignUp> {
                   Container(
                     margin: const EdgeInsets.all(8),
                     padding:
-                        const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                        const EdgeInsets.symmetric(horizontal: 10, vertical: 9),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8),
-                      color: Colors.deepPurple.withOpacity(.2),
+                      color: Colors.deepPurple.withOpacity(.3),
                     ),
                     child: TextFormField(
                       controller: _confpasswordController,
@@ -180,7 +184,7 @@ class _SignUpState extends State<SignUp> {
                   Container(
                     margin: const EdgeInsets.all(8),
                     padding:
-                        const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                        const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
                         color: Colors.deepPurple.withOpacity(.3)),
@@ -229,7 +233,8 @@ class _SignUpState extends State<SignUp> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text("Already have an account?"),
+                      const Text("Already have an account?",
+                          style: TextStyle(color: subtitle)),
                       TextButton(
                           onPressed: () {
                             Navigator.push(
@@ -237,7 +242,8 @@ class _SignUpState extends State<SignUp> {
                                 MaterialPageRoute(
                                     builder: (context) => const SignIn()));
                           },
-                          child: const Text("Login"))
+                          child: const Text("Login",
+                              style: TextStyle(fontWeight: FontWeight.bold)))
                     ],
                   )
                 ],
